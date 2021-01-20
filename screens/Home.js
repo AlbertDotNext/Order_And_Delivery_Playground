@@ -10,7 +10,7 @@ import {
 } from "react-native";
 import {icons, images, SIZES, COLORS, FONTS} from '../constants'
 
-const Home = () => {
+const Home = ({ navigation }) => {
 
   // Dummy Datas
 
@@ -478,6 +478,10 @@ const restaurantData = [
     const renderItem = ({item}) => (
       <TouchableOpacity
         style={{marginBottom: SIZES.padding * 2}}
+        onPress={() => navigation.navigate("Restaurant", {
+          item,
+          currentLocation
+        })}
       >
         <View
           style={{
