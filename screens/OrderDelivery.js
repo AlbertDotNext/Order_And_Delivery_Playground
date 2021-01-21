@@ -35,7 +35,7 @@ const OrderDelivery = ({ route, navigation }) => {
       latitudeDelta: Math.abs(fromLoc.latitude - toLoc.latitude) * 2,
       longitudeDelta: Math.abs(fromLoc.longitude - toLoc.longitude) * 2
     }
-    console.log('fromLoc', fromLoc, 'toLoc', toLoc)
+
     setRestaurant(restaurant)
     setStreetName(street)
     setFromLocation(fromLoc)
