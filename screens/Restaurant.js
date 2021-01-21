@@ -8,7 +8,7 @@ import {
   StyleSheet,
   Animated
 } from "react-native";
-import {} from 'react-native-iphone-x-helper'
+import {isIphoneX} from 'react-native-iphone-x-helper'
 import {icons, COLORS, SIZES, FONTS} from '../constants'
 
 const Restaurant = ({ route, navigation }) => {
@@ -315,7 +315,41 @@ const Restaurant = ({ route, navigation }) => {
                 </View>
             </View>
 
+            <View
+                style={{
+                    padding: SIZES.padding * 2,
+                    alignItems: 'center',
+                    justifyContent: 'center'
+                }}
+            >
+                <TouchableOpacity
+                    style={{
+                        width: SIZES.width * 0.9,
+                        padding: SIZES.padding,
+                        backgroundColor: COLORS.primary,
+                        alignItems: 'center',
+                        borderRadius: SIZES.radius
+                    }}
+
+                >
+                    <Text style={{ color: COLORS.white, ...FONTS.h2 }}>Order</Text>
+                </TouchableOpacity>
+            </View>
         </View>
+
+        {isIphoneX() &&
+            <View
+                style={{
+                    position: 'absolute',
+                    bottom: -34,
+                    left: 0,
+                    right: 0,
+                    height: 34,
+                    backgroundColor: COLORS.white
+                }}
+            >
+            </View>
+        }
       </View>
     )
   }
