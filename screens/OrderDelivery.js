@@ -135,6 +135,7 @@ const OrderDelivery = ({ route, navigation }) => {
     return (
       <View style={{flex: 1}}>
         <MapView
+          ref={mapView}
           provider={PROVIDER_GOOGLE}
           region={region}
           style={{flex: 1}}
