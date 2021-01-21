@@ -43,6 +43,7 @@ const Restaurant = ({ route, navigation }) => {
             }}
           />
         </TouchableOpacity>
+
         <View
             style={{
                 flex: 1,
@@ -84,9 +85,44 @@ const Restaurant = ({ route, navigation }) => {
     )
   }
 
+  function renderFoodInfo() {
+    return (
+      <Animated.ScrollView
+        horizontal
+        pagingEnabled
+        scrollEventThrottle={16}
+        snapToAlignment="center"
+        showsHorizontalScrollIndicator={false}
+      >
+        {
+          restaurant?.menu.map((item, index) => (
+              <View
+                  key={`menu-${index}`}
+                  style={{ alignItems: 'center' }}
+              >
+                  <View style={{ height: SIZES.height * 0.35 }}>
+                      {/* Food Image */}
+                      <Image
+                          source={item.photo}
+                          resizeMode="cover"
+                          style={{
+                              width: SIZES.width,
+                              height: "100%"
+                          }}
+                      />
+                  </View>
+              </View>
+          ))
+        }
+
+      </Animated.ScrollView>
+    )
+  }
+
   return (
     <SafeAreaView style={styles.container}>
       {renderHeader()}
+      {renderFoodInfo()}
     </SafeAreaView>
   )
 }
